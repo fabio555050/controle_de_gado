@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Controle de Gado</title>
+	
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
+	<style>
+	
+	
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 20
+}
+
+#area-menu{
+	background-color: white;
+		text-align: center;
+		clear: both;
+		color: #348344;
+        font-size: 19px;
+        line-height: 5px;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+        
+		}
+		
+		a {
+	text-decoration: none;
+	}
+
+	a:link, a:visited {
+	color: #348344;
+	padding: 10px 30px;
+	}
+
+	a:hover {
+	text-decoration: underline;
+	color: #2F4F4F;
+	background: white;
+	text-decoration: none;
+	}
+	
+	/*.container {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 10px; /* Simply adjust this value !*/
+ /*grid-template-columns: repeat(3, 1fr); /* OR grid-template-columns: 1fr 1fr 1fr;*/
+  /*grid-auto-rows: 1fr; 
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.container > div:nth-child(1) {
+	background-color: #006400;
+  border-radius: 20px;
+  width: 19%;
+  padding-bottom: 20px; 
+  margin-top: 20px;
+  }
+
+.container > div:nth-child(2) {
+  width: 49%;
+  padding-bottom: 20px;
+  margin-right: 4%;
+  margin-left: 4%;
+  }
+
+.container > div:nth-child(3) {
+ background-color: #006400;
+ border-radius: 20px;	
+  width: 19%;
+  padding-bottom: 20px;
+  padding-right: 1%;
+  padding-left: 1%;
+  margin-top: 20px;
+ }
+
+.container>div {
+	height: 100%;
+}*/
+
+#consulta{
+ background-color: #223b48;
+  text-align:center;
+  border-radius: 20px;
+  width: 25%;
+  padding-bottom: 20px; 
+  margin-top: 20px;
+  margin:auto;
+}
+
+#disponiveis {
+	border: 1px solid black;
+	border-radius:20px;
+	width: 75%;
+	background-color:white;
+	text-align: center;
+	margin: auto;
+	display: none; /* esconde a tabela por padrão */
+}
+
+#disponiveis.visible {
+	display: block; /* mostra a tabela quando a classe "visible" é adicionada */
+}
+
+
+
+
+
+
+		h1 {
+			background-color: #348344;
+			text-align: center;
+			clear: both;
+			color: white;
+        font-size: 38px;
+        padding-bottom: 20px;
+        line-height: 20px;
+        margin-bottom:0px;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+        
+		}
+		
+		h1 img {
+    display: block; /* torna a imagem um elemento de bloco */
+    margin: auto; /* centraliza a imagem horizontalmente */
+    margin-bottom: 10px; /* adiciona uma margem inferior para separar a imagem do texto */
+}
+		
+		h2 {
+			background-color: #223b48;
+			text-align: center;
+			color: white;
+			border-radius: 20px;
+			padding-bottom: 20px;
+			padding-top: 20px;
+			
+        
+		}
+		
+		h3 {
+			background-color: white;
+			text-align: center;
+			color: #348344;
+        font-size: 0px;
+        padding-top: 20px;
+        padding-bottom: 0px;
+        line-height: 0px;
+        margin-bottom:20px;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+        
+		}
+		
+		h4 {
+			background-color: #DCDCDC;
+			line-height: 40px;
+			width: auto;
+            margin-left: auto;
+            margin-right: auto; 
+		 	}
+
+		label, input [type="date"] {
+			height:20px;
+			display: block;
+			margin-bottom: 0px;
+			text-align: center;
+			padding: 0px;
+			color: white;
+			}
+			
+			#dataConsulta
+			{
+			border-radius: 6px;
+			}
+					
+			
+			form  [type="number"], form [type="text"], form [type="date"], select {
+    		display: block;
+   			 margin: auto;
+   			 margin-bottom: 15px;
+   			 width: 55%;
+   			 border-radius: 6px;
+			}
+			
+			
+
+		button  {
+			margin-top: 5px;
+			margin-bottom: 5px;
+			background: white;
+			border-radius: 8px; 
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+		
+		#btnConsultar {
+			margin-top:15px;
+			
+		}
+		
+		.btn_edit {
+			background-color: #FFD700;
+			color: black;
+			margin-right: 4%;
+			padding-top: 2px;
+			padding-bottom: 2px;
+			margin-top: 3%;
+			margin-bottom: 3%;		
+		}
+			
+			.btn_delete {
+			background-color: #FF4500;	
+			color: white;
+			padding-top: 2px;
+			padding-bottom: 2px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			}
+		
+		
+		
+  table {
+    text-align: center;
+  border-collapse: collapse;
+  }
+  
+   
+  table th, table tr, table td {
+	border: 1px solid black;
+	
+	text-align: center;
+   	margin: auto;
+   	
+}
+th {
+	background-color: #FFFFF0;
+	
+}
+
+tr:nth-child(even) {
+  background:#FFFFF0;
+}
+
+.filtro{
+	width: 95%;
+	
+}
+
+
+#txtColuna1{
+	width: 95%;
+	}
+
+#txtColuna2{
+	width: 95%;
+}
+
+#txtColuna3{
+	width: 95%;
+}
+
+#txtColuna4{
+	width: 95%;
+}
+
+#txtColuna5{
+	width: 95%;
+}
+
+#txtColuna6{
+	width: 95%;
+}
+h5{
+	vertical-align: center;
+	background-color:#348344;
+	border: 1px solid black;
+	width:398.0px;
+	text-align:center;
+	text-align: center;
+	color: white;
+    font-size: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 0px;
+    margin-bottom:0px;	
+}
+
+
+.ticker {
+	line-height:15px;
+  overflow: hidden;
+  display: flex;
+  width: 100vw;
+}
+.ticker__list {
+  display: flex;
+  margin-top: 0px;
+  animation: ticker 50s infinite linear;
+  text-align:center;
+}
+.ticker:hover .ticker__list {
+	animation-play-state: infinite linear;
+}
+.ticker__item {
+	border: 1px solid #e9e9e9;
+  margin-right: 0px;
+  background-color: #fdfdfd;
+  width: 300px
+}
+
+@keyframes ticker {
+  100% {
+    transform: translateX(-100vw); /*try changing this to -100vw*/
+  }
+}
+span{
+	color:#424242;
+}
+h7{ 
+	height:40px;
+	width:95px;
+	background:	#223b48;
+	color:	#223b48;
+	position:absolute;
+}
+h8{ 
+	
+	height:40px;
+	width:95px;
+	background:	#223b48;
+	color:	#223b48;
+	position:absolute;
+	right: 0;
+}
+h9{
+	position:absolute;
+	right: 20%;
+	bottom:81%;
+	font-size:21px;
+}
+  #meuTexto {
+	margin-top:0px;
+    font-size: 19px; /* Tamanho inicial da fonte */
+}
+#aumentarFonte {
+	color:white;
+	font-size:17px;
+	bottom:80%;
+	border:0px;
+	background-color:#348344;
+	position:absolute;
+	right: 17%;
+}
+#diminuirFonte {
+	color:white;
+	font-size:17px;
+	bottom:80%;
+	border:0px;
+	background-color:#348344;
+	position:absolute;
+	right: 15%;
+}
+
+
+  
+	</style>
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
+    <script>
+    $(function(){
+    $("#tabelaAnimais input").keyup(function(){        
+        var index = $(this).parent().index();
+        var nth = "#tabelaAnimais td:nth-child("+(index+1).toString()+")";
+        var valor = $(this).val().toUpperCase();
+        $("#tabelaAnimais tbody tr").show();
+        $(nth).each(function(){
+		var texto = $(this).text().toUpperCase();
+            if (texto.substring(0, valor.length) !== valor){
+                $(this).parent().hide();
+            }
+        });
+    });
+ 
+    $("#tabelaAnimais input").blur(function(){
+        $(this).val("");
+    }); 
+});
+
+/*const ticker = document.querySelector('.ticker')
+const list = document.querySelector('.ticker__list')
+
+let gg = false
+// ANIMATION WILL PLAY FOR 2S AND THEN FREEZE
+// TO DEMONSTRATE THE PROBLEM
+setTimeout(() => {
+  gg = true
+  while(gg) {
+  // event loop is blocked
+  // animation freezes if translateX is a %
+  // animation continues if translateX is set to pixels
+    
+  }
+}, 2000)
+
+
+
+setTimeout(() => {
+  gg = false
+}, 3000)
+
+function fetchCurrencyData() {
+  return fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL')
+    .then(response => response.json())
+    .then(data => data);
+}
+
+function updateCurrencyPrices() {
+  fetchCurrencyData()
+    .then(data => {
+      // Suponha que a API retorna os dados em um objeto com os códigos das moedas como chaves
+      const usdBrlPrice = data['USDBRL'].bid;
+      const eurBrlPrice = data['EURBRL'].bid;
+      const btcBrlPrice = data['BTCBRL'].bid;
+
+      // Atualize o elemento <span id="usdPrice"> dentro do primeiro item da div
+      const usdItem = document.getElementById('usdItem');
+      usdItem.querySelector('span#usdPrice').textContent = `USD-BRL: ${usdBrlPrice}`;
+
+      // Atualize os elementos HTML com os novos preços (se necessário)
+      document.getElementById('eurPrice').textContent = `EUR-BRL: ${eurBrlPrice}`;
+      document.getElementById('btcPrice').textContent = `BTC-BRL: ${btcBrlPrice}`;
+    })
+    .catch(error => {
+      console.error('Erro ao buscar dados da API:', error);
+    });
+}
+
+// Atualize os preços a cada 60 segundos (ajuste conforme necessário)
+setInterval(updateCurrencyPrices, 60000); // 60 segundos em milissegundos
+*/
+
+    </script> 
+    
+</head>
+
+<body>
+
+	<h1><img src="/images/imagemGado.png" width="110px" height="110px">CONTROLE DE GADO <h9>Acessibilidade</h9><button id="aumentarFonte">A+</button>
+			<button id="diminuirFonte">A-</button></h1>
+	
+	<h3><div id="area-menu">
+			<p id="meuTexto"><a href="index.html">Home</a>  
+			<a href="cadastro.html">Cadastro de Animais</a>
+			<a href="listaAnimais.html">Listar Animais</a>
+			<a href="consulta.html">Disponibilidade de Animais</a></p>
+			
+			
+			
+
+		</div>
+	</h3>
+	
+	<h7>teste</h7> <h8>teste</h8>
+<!-- SimpleFX widget LIVE QUOTES BAR - START -->
+<div class="sfx-widget" id="sfx-live-quotes-bar"></div>
+<script type="text/javascript" src="https://widgets.simplefx.com/sfx-widget.js"></script>
+<script type="text/javascript">
+	sfx('liveQuotesBar', {
+		containerId: 'sfx-live-quotes-bar',
+		language: 'auto',
+		width: "100%",
+		height: "40px",
+		symbols: ["BTCUSD","GOOG.US","USDSEK","PETROBRA.BR","ITAU.BR","ITAU.BR","VALE.BR","VALE.BR","SUZANO.BR","SUZANO.BR","COSAN.BR","COSAN.BR","B3.BR","B3.BR","MAGALU.BR","MAGALU.BR"],
+		theme: "dark",
+		alignLogo: "left",
+		customElements: ["sessionChange"],
+
+	})
+</script>
+<!-- SimpleFX widget - END -->
+	
+		
+  	<div id="consulta">
+  		
+ 	 <h2>Consultar animais disponíveis</h2>
+ 	
+ 	 
+		<label for="dataConsulta">Digite a data para verificar os animais disponíveis</label>
+		<input type="date" id="dataConsulta" name="dataConsulta">
+		<button type="button" id="btnConsultar">Consultar animais disponíveis</button>
+		<p></p>
+		<table id=disponiveis>
+			
+			<tr>
+				<td>
+					<b><p id="qtdCabeças"></p></b>
+				</td>
+			</tr>
+			 <tr>
+				<td>
+					<b><p id="qtdVitelos"></p></b>
+				</td>
+			</tr>	
+			 <tr>
+				<td>
+					<b><p id="qtdSuperPrecoces"></p></b>
+				</td>
+			</tr>
+			 <tr>
+				<td>
+					<b><p id="qtdPrecoces"></p></b>
+				</td>
+			</tr>
+			</tr>
+			 <tr>
+				<td>
+					<b><p id="qtdNovilhos"></p></b>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<b><p id="qtdBois"></p></b>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<b><p id="qtdTouros"></p></b>
+				</td>
+			</tr>	 
+			
+		</table>
+			 	 		 		
+	</div>
+		
+  
+	
+	
+
+	<script>
+	const aumentarBotao = document.getElementById('aumentarFonte');
+const diminuirBotao = document.getElementById('diminuirFonte');
+const meuTexto = document.getElementById('meuTexto');
+
+aumentarBotao.addEventListener('click', function() {
+    const tamanhoAtual = window.getComputedStyle(meuTexto).fontSize;
+    const novoTamanho = parseFloat(tamanhoAtual) + 2; // Aumenta 2 pixels
+    meuTexto.style.fontSize = novoTamanho + 'px';
+});
+
+diminuirBotao.addEventListener('click', function() {
+    const tamanhoAtual = window.getComputedStyle(meuTexto).fontSize;
+    const novoTamanho = parseFloat(tamanhoAtual) - 2; // Diminui 2 pixels
+    meuTexto.style.fontSize = novoTamanho + 'px';
+});
+	
+	
+		const formAnimal = document.querySelector("#form-animal");
+		const btnConsultar = document.querySelector("#btnConsultar");
+		const tabelaAnimais = document.querySelector("#tabelaAnimais");
+		const qtdCabecas = document.querySelector("#qtdCabeças");
+		const qtdVitelos = document.querySelector("#qtdVitelos");
+		const qtdSuperPrecoces = document.querySelector("#qtdSuperPrecoces");
+		const qtdPrecoces = document.querySelector("#qtdPrecoces");
+		const qtdNovilhos = document.querySelector("#qtdNovilhos");
+		const qtdBois = document.querySelector("#qtdBois");
+		const qtdTouros = document.querySelector("#qtdTouros");
+
+		
+
+
+		btnConsultar.addEventListener("click", () => {
+  const dataConsulta = document.querySelector("#dataConsulta").value;
+  
+
+  fetch(`/animal/disponiveis/${dataConsulta}?timeZone=America/Sao_Paulo`)
+    .then((response) => response.json())
+    .then((data) => {
+	  const animais = (data !== 1) ? "animais estarão disponíveis" : "animal estará disponível";
+
+		
+	 
+      const dataFormatada = new Date(dataConsulta + 'T24:00:00.000Z').toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });  
+      qtdCabeças.innerHTML = `Em ${dataFormatada}, ${data} ${animais} para abate`;
+      
+      
+      // Mostra a div com a resposta e ajusta a altura
+      const divQtdCabeças = document.querySelector("#disponiveis");
+      divQtdCabeças.style.display = "block";
+      divQtdCabeças.style.height = "auto";
+      
+      
+    });
+    fetch(`/animal/vitelos/${dataConsulta}?timeZone=America/Sao_Paulo`)
+    .then((response) => response.json())
+    .then((data) => {
+		const dataFormatada = new Date(dataConsulta + 'T24:00:00.000Z').toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });  
+      qtdVitelos.innerHTML = `Vitelos:  ${data}`;
+      
+      
+     const divQtdvitelos = document.querySelector("#disponiveis");
+      divQtdvitelos.style.display = "block";
+      divQtdvitelos.style.height = "auto";
+    });
+    
+     fetch(`/animal/superPrecoce/${dataConsulta}?timeZone=America/Sao_Paulo`)
+    .then((response) => response.json())
+    .then((data) => {
+		const dataFormatada = new Date(dataConsulta + 'T24:00:00.000Z').toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });  
+      qtdSuperPrecoces.innerHTML = `Novilhos Super Precoce:  ${data}`;
+      
+      
+     const divQtdSuperPrecoces = document.querySelector("#disponiveis");
+      divQtdSuperPrecoces.style.display = "block";
+      divQtdSuperPrecoces.style.height = "auto";
+    });
+    
+     fetch(`/animal/precoce/${dataConsulta}?timeZone=America/Sao_Paulo`)
+    .then((response) => response.json())
+    .then((data) => {
+		const dataFormatada = new Date(dataConsulta + 'T24:00:00.000Z').toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });  
+      qtdPrecoces.innerHTML = `Novilhos Precoce:  ${data}`;
+      
+      
+     const divQtdPrecoces = document.querySelector("#disponiveis");
+      divQtdPrecoces.style.display = "block";
+      divQtdPrecoces.style.height = "auto";
+    });
+    
+    fetch(`/animal/novilhos/${dataConsulta}?timeZone=America/Sao_Paulo`)
+    .then((response) => response.json())
+    .then((data) => {
+		const dataFormatada = new Date(dataConsulta + 'T24:00:00.000Z').toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });  
+      qtdNovilhos.innerHTML = `Novilhos:  ${data}`;
+      
+      
+     const divQtdNovilhos = document.querySelector("#disponiveis");
+      divQtdNovilhos.style.display = "block";
+      divQtdNovilhos.style.height = "auto";
+    });
+    
+    fetch(`/animal/bois/${dataConsulta}?timeZone=America/Sao_Paulo`)
+    .then((response) => response.json())
+    .then((data) => {
+		const dataFormatada = new Date(dataConsulta + 'T24:00:00.000Z').toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });  
+      qtdBois.innerHTML = `Bois:  ${data}`;
+      
+      
+     const divQtdBois = document.querySelector("#disponiveis");
+      divQtdBois.style.display = "block";
+      divQtdBois.style.height = "auto";
+    });
+    
+    fetch(`/animal/touros/${dataConsulta}?timeZone=America/Sao_Paulo`)
+    .then((response) => response.json())
+    .then((data) => {
+		const dataFormatada = new Date(dataConsulta + 'T24:00:00.000Z').toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });  
+      qtdTouros.innerHTML = `Touros:  ${data}`;
+      
+      
+     const divQtdTouros = document.querySelector("#disponiveis");
+      divQtdTouros.style.display = "block";
+      divQtdTouros.style.height = "auto";
+    });
+});
+
+		
+		// Função para consultar o total de animais
+function consultarTotalAnimais() {
+  fetch('/animal/cabeças-de-gado?size=50')
+    .then(response => response.json())
+    .then(data => preencherTabela(data.content))
+    .catch(error => console.error(error));
+}
+
+// Objeto para armazenar a ordenação da tabela
+let ordenacao = {
+  coluna: null,
+  ordem: null
+};
+
+// Função para preencher a tabela com os dados dos animais
+function preencherTabela(animais) {
+  const tabela = document.getElementById('tabelaAnimais');
+  const tbody = tabela.querySelector('tbody');
+  const ths = tabela.querySelectorAll('th');
+  const filtroRow = document.getElementById('filtroRow');
+  tbody.innerHTML = ''; // Limpa a tabela
+  
+  // Preenche a tabela com os animais
+  animais.forEach(animal => {
+    const tr = document.createElement('tr');
+    
+    // Converte a data para o formato dd/mm/aaaa
+    const dataNascimento = new Date(animal.dataNascimento);
+    const dia = dataNascimento.getDate().toString().padStart(2, '0');
+    const mes = (dataNascimento.getMonth() + 1).toString().padStart(2, '0');
+    const ano = dataNascimento.getFullYear().toString();
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+    
+    tr.innerHTML = `
+  <td data-coluna="numeroProdutor">${animal.numeroProdutor}</td>
+  <td data-coluna="numeroIdentificacao">${animal.numeroIdentificacao}</td>
+  <td data-coluna="nomeAnimal">${animal.nomeAnimal}</td>
+  <td data-coluna="dataFormatada">${dataFormatada}</td>
+  <td data-coluna="peso">${animal.peso} Kg</td>
+  <td data-coluna="numeroPropriedade">${animal.numeroPropriedade}</td>
+  <td>
+    <button type="button" class="btn_edit" onclick="editarAnimal()">
+    <span class="material-symbols-outlined">
+stylus
+</span>
+  </button>
+    
+    <button type="button" class="btn_delete" onclick="deleteAnimal()">
+    <span class="material-symbols-outlined">
+delete
+</span>
+    </button>
+  </td>
+`;
+    tbody.appendChild(tr);
+  });
+  
+    
+  // Adiciona os campos de filtro
+  
+}
+
+// Adiciona os listeners de eventos aos títulos das colunas
+/*const tabela = document.getElementById('tabelaAnimais');
+const ths = tabela.querySelectorAll('th');
+const filtroRow = document.getElementById('filtroRow');
+ths.forEach(th => {
+  th.addEventListener('click', () => {
+    const coluna = th.dataset.coluna;
+    const ascendente = th.classList.contains('asc');
+
+    // Remove todas as setas de ordenação
+    ths.forEach(th => {
+      th.classList.remove('asc', 'desc');
+    });
+
+    if (ascendente) {
+      th.classList.add('desc');
+      ordenarTabela(coluna, false);
+    } else {
+      th.classList.add('asc');
+      ordenarTabela(coluna, true);
+    }
+  });
+});*/
+
+/*function ordenarTabela(coluna) {
+  const tbody = document.querySelector('tbody');
+  const linhas = Array.from(tbody.querySelectorAll('tr'));
+  const tipo = coluna.dataset.tipo;
+  const indiceColuna = coluna.cellIndex;
+
+  const comparar = (indexA, indexB) => {
+    const valorA = indexA.children[indiceColuna].textContent.trim();
+    const valorB = indexB.children[indiceColuna].textContent.trim();
+
+    if (tipo === 'string') {
+      return valorA.localeCompare(valorB, undefined, { numeric: true, sensitivity: 'base' });
+    } else if (tipo === 'number') {
+      return valorA - valorB;
+    } else if (tipo === 'date') {
+      return new Date(valorA.split('/').reverse().join('-')) - new Date(valorB.split('/').reverse().join('-'));
+    }
+  };
+
+  const direcao = coluna.dataset.ordenacao === 'asc' ? -1 : 1;
+  linhas.sort((linhaA, linhaB) => direcao * comparar(linhaA, linhaB));
+  linhas.forEach(linha => tbody.appendChild(linha));
+
+  // Altera a seta de ordenação
+  const setas = document.querySelectorAll('.seta');
+  setas.forEach(seta => seta.classList.remove('asc', 'desc'));
+  coluna.dataset.ordenacao = coluna.dataset.ordenacao === 'asc' ? 'desc' : 'asc';
+  const seta = coluna.querySelector('.seta');
+  seta.classList.toggle('asc', coluna.dataset.ordenacao === 'asc');
+  seta.classList.toggle('desc', coluna.dataset.ordenacao === 'desc');
+}
+*/
+
+function editarAnimal() {
+  // Obtenha os valores dos campos do formulário
+  var numeroProdutor = document.getElementById('campoNumeroProdutor').value;
+  var nomeAnimal = document.getElementById('campoNomeAnimal').value;
+  var dataNascimento = document.getElementById('campoDataNascimento').value;
+  var peso = document.getElementById('campoPeso').value;
+  var numeroPropriedade = document.getElementById('campoNumeroPropriedade').value;
+
+  // Construa o objeto de dados a ser enviado no corpo da requisição
+  var animalData = {
+    numeroProdutor: numeroProdutor,
+    nomeAnimal: nomeAnimal,
+    dataNascimento: dataNascimento,
+    peso: peso,
+    numeroPropriedade: numeroPropriedade
+  };
+
+  // Envie a requisição PUT para o endpoint
+  fetch('animal/editar', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(animalData)
+  })
+    .then(function(response) {
+      // Verifique a resposta da requisição
+      if (response.ok) {
+        // Faça algo se a requisição for bem-sucedida
+        console.log('Animal editado com sucesso!');
+      } else {
+        // Faça algo se a requisição falhar
+        console.log('Erro ao editar animal');
+      }
+    })
+    .catch(function(error) {
+      console.log('Erro na requisição:', error);
+    });
+}
+
+// Função para filtrar os dados da tabela
+function filtrarTabela() {
+  const inputFilters = document.querySelectorAll('.filtro');
+  const tabela = document.getElementById('tabelaAnimais');
+  const tbody = tabela.querySelector('tbody');
+  const rows = tbody.querySelectorAll('tr');
+  
+  rows.forEach(row => {
+    let exibeRow = true;
+    
+    // Verifica cada coluna da linha
+    row.querySelectorAll('th').forEach((cell, index) => {
+      const filtro = inputFilters[index].value.toLowerCase();
+      const texto = cell.textContent.toLowerCase();
+      
+      if (filtro && texto.indexOf(filtro) === -1) {
+        exibeRow = false;
+        
+      }
+    });
+    
+    // Exibe ou oculta a linha com base no filtro
+    row.style.display = exibeRow ? 'table-row' : 'none';
+  });
+}
+
+// Adiciona o evento de escuta para os campos de filtro
+const inputFilters = document.querySelectorAll('.filtro');
+inputFilters.forEach(input => {
+  input.addEventListener('input', filtrarTabela);
+});
+
+// Função para salvar as alterações feitas no animal editado
+function salvarEdicao() {
+  // Obtenha os novos valores dos campos do formulário de edição
+  const novoNumeroProdutor = document.getElementById('campoNumeroProdutor').value;
+  const novoNomeAnimal = document.getElementById('campoNomeAnimal').value;
+  const novaDataNascimento = document.getElementById('campoDataNascimento').value;
+  const novoPeso = document.getElementById('campoPeso').value;
+  const novoNumeroPropriedade = document.getElementById('campoNumeroPropriedade').value;
+
+  // Faça algo com os novos valores, como enviar uma solicitação de atualização ao servidor
+
+  // Exemplo: exiba os novos valores no console
+  console.log('Novo Número do Produtor:', novoNumeroProdutor);
+  console.log('Novo Nome do Animal:', novoNomeAnimal);
+  console.log('Nova Data de Nascimento:', novaDataNascimento);
+  console.log('Novo Peso:', novoPeso);
+  console.log('Novo Número da Propriedade:', novoNumeroPropriedade);
+
+  // Oculte o formulário de edição
+  document.getElementById('formularioEdicao').style.display = 'none';
+}
+  
+  function deleteAnimal(event) {
+  // Obtenha o botão clicado
+  const button = event.currentTarget;
+
+  // Obtenha o ID do animal a ser excluído
+  const animalId = button.getAttribute('data-animal-id');
+
+  // Envie a requisição DELETE para a API
+  fetch(`/animal/delete/${animalId}`, {
+    method: 'DELETE'
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Animal excluído com sucesso!');
+        // Atualize a tabela ou faça qualquer outra ação necessária após a exclusão
+      } else {
+        console.error('Erro ao excluir o animal');
+      }
+    })
+    .catch((error) => {
+      console.error('Erro na requisição:', error);
+    });
+}
+
+// Obtenha todos os botões de exclusão
+const deleteButtons = document.querySelectorAll('.btn_delete');
+
+// Adicione um evento de clique a cada botão
+deleteButtons.forEach((button) => {
+  button.addEventListener('click', deleteAnimal);
+});
+
+</script>
