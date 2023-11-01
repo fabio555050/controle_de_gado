@@ -364,10 +364,12 @@
     }
 
     h9 {
-      position: absolute;
-      right: 20%;
-      bottom: 81%;
-      font-size: 21px;
+      color: white;
+      margin-top: 0px;
+      margin-left: 63%;
+      margin-right: 20px;
+      font-size: 20px;
+      padding-top: 0%;
     }
 
     #meuTexto {
@@ -379,21 +381,24 @@
     #aumentarFonte {
       color: white;
       font-size: 17px;
-      bottom: 80%;
       border: 0px;
       background-color: #348344;
-      position: absolute;
-      right: 17%;
+      margin-right: 10px;
+      margin-top: 0px;
+      padding-top: 0%;
     }
 
     #diminuirFonte {
       color: white;
       font-size: 17px;
-      bottom: 80%;
       border: 0px;
       background-color: #348344;
-      position: absolute;
-      right: 15%;
+      padding-top: 0%;
+      margin-top: 0px;
+    }
+
+    #titulo {
+      background-color: #348344;
     }
   </style>
 
@@ -477,10 +482,11 @@
 
 <body>
 
-  <h1><img src="/images/imagemGado.png" width="110px" height="110px">CONTROLE DE GADO <h9>Acessibilidade</h9><button
-      id="aumentarFonte">A+</button>
-    <button id="diminuirFonte">A-</button>
-  </h1>
+  <div id="titulo">
+    <h1><img src="/images/imagemGado.png" width="110px" height="110px">CONTROLE DE GADO</h1>
+    <h9><b>Acessibilidade</b></h9><button id="aumentarFonte">A+</button> <button id="diminuirFonte">A-</button>
+
+  </div>
 
   <h3>
     <div id="area-menu">
