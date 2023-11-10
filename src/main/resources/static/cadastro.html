@@ -646,30 +646,17 @@
       evt = evt || event;
       var charCode = evt.charCode || evt.keyCode || evt.which || 0;
 
-      // Verificar se o código do caractere está dentro da faixa das letras (maiúsculas e minúsculas) ou caracteres acentuados
+      // Verificar se o código do caractere está dentro da faixa das letras (maiúsculas e minúsculas), caracteres acentuados ou espaço
       if (
-        (charCode < 65 || charCode > 90) && // letras maiúsculas
-        (charCode < 97 || charCode > 122) && // letras minúsculas
-        (charCode !== 192 && charCode !== 193 && charCode !== 194 &&
-          charCode !== 195 && charCode !== 196 && charCode !== 197 && charCode !== 198 &&
-          charCode !== 199 && charCode !== 200 && charCode !== 201 && charCode !== 202 &&
-          charCode !== 203 && charCode !== 204 && charCode !== 205 && charCode !== 206 &&
-          charCode !== 207 && charCode !== 208 && charCode !== 209 && charCode !== 210 &&
-          charCode !== 211 && charCode !== 212 && charCode !== 213 && charCode !== 214 &&
-          charCode !== 216 && charCode !== 217 && charCode !== 218 && charCode !== 219 &&
-          charCode !== 220 && charCode !== 221 && charCode !== 222 && charCode !== 223 &&
-          charCode !== 224 && charCode !== 225 && charCode !== 226 && charCode !== 227 &&
-          charCode !== 228 && charCode !== 229 && charCode !== 230 && charCode !== 231 &&
-          charCode !== 232 && charCode !== 233 && charCode !== 234 && charCode !== 235 &&
-          charCode !== 236 && charCode !== 237 && charCode !== 238 && charCode !== 239 &&
-          charCode !== 240 && charCode !== 241 && charCode !== 242 && charCode !== 243 &&
-          charCode !== 244 && charCode !== 245 && charCode !== 246 && charCode !== 248 &&
-          charCode !== 249 && charCode !== 250 && charCode !== 251 && charCode !== 252 &&
-          charCode !== 253 && charCode !== 254 && charCode !== 255)
+        ((charCode >= 65 && charCode <= 90) || // letras maiúsculas
+          (charCode >= 97 && charCode <= 122) || // letras minúsculas
+          (charCode >= 192 && charCode <= 255) || // caracteres acentuados
+          charCode === 32) // espaço
       ) {
+        return true;
+      } else {
         return false;
       }
-      return true;
     }
 
 
